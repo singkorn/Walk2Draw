@@ -3,19 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B4FDE71525458BB00070B190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE71425458BB00070B190 /* AppDelegate.swift */; };
 		B4FDE71725458BB00070B190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE71625458BB00070B190 /* SceneDelegate.swift */; };
 		B4FDE71925458BB00070B190 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE71825458BB00070B190 /* ViewController.swift */; };
-		B4FDE71C25458BB00070B190 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FDE71A25458BB00070B190 /* Main.storyboard */; };
 		B4FDE71F25458BB00070B190 /* Walk2Draw.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE71D25458BB00070B190 /* Walk2Draw.xcdatamodeld */; };
 		B4FDE72125458BB10070B190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4FDE72025458BB10070B190 /* Assets.xcassets */; };
 		B4FDE72425458BB10070B190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FDE72225458BB10070B190 /* LaunchScreen.storyboard */; };
 		B4FDE72F25458BB10070B190 /* Walk2DrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE72E25458BB10070B190 /* Walk2DrawTests.swift */; };
 		B4FDE73A25458BB10070B190 /* Walk2DrawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE73925458BB10070B190 /* Walk2DrawUITests.swift */; };
+		B4FDE74C2545C8520070B190 /* LogStore in Frameworks */ = {isa = PBXBuildFile; productRef = B4FDE74B2545C8520070B190 /* LogStore */; };
+		B4FDE7542545CB430070B190 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE7532545CB430070B190 /* LocationProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,6 @@
 		B4FDE71425458BB00070B190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4FDE71625458BB00070B190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B4FDE71825458BB00070B190 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B4FDE71B25458BB00070B190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4FDE71E25458BB00070B190 /* Walk2Draw.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Walk2Draw.xcdatamodel; sourceTree = "<group>"; };
 		B4FDE72025458BB10070B190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4FDE72325458BB10070B190 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +51,7 @@
 		B4FDE73525458BB10070B190 /* Walk2DrawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Walk2DrawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FDE73925458BB10070B190 /* Walk2DrawUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk2DrawUITests.swift; sourceTree = "<group>"; };
 		B4FDE73B25458BB10070B190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4FDE7532545CB430070B190 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4FDE74C2545C8520070B190 /* LogStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,8 +105,8 @@
 			children = (
 				B4FDE71425458BB00070B190 /* AppDelegate.swift */,
 				B4FDE71625458BB00070B190 /* SceneDelegate.swift */,
+				B4FDE7532545CB430070B190 /* LocationProvider.swift */,
 				B4FDE71825458BB00070B190 /* ViewController.swift */,
-				B4FDE71A25458BB00070B190 /* Main.storyboard */,
 				B4FDE72025458BB10070B190 /* Assets.xcassets */,
 				B4FDE72225458BB10070B190 /* LaunchScreen.storyboard */,
 				B4FDE72525458BB10070B190 /* Info.plist */,
@@ -147,6 +149,9 @@
 			dependencies = (
 			);
 			name = Walk2Draw;
+			packageProductDependencies = (
+				B4FDE74B2545C8520070B190 /* LogStore */,
+			);
 			productName = Walk2Draw;
 			productReference = B4FDE71125458BB00070B190 /* Walk2Draw.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +223,9 @@
 				Base,
 			);
 			mainGroup = B4FDE70825458BB00070B190;
+			packageReferences = (
+				B4FDE74A2545C8520070B190 /* XCRemoteSwiftPackageReference "LogStore2" */,
+			);
 			productRefGroup = B4FDE71225458BB00070B190 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,7 +244,6 @@
 			files = (
 				B4FDE72425458BB10070B190 /* LaunchScreen.storyboard in Resources */,
 				B4FDE72125458BB10070B190 /* Assets.xcassets in Resources */,
-				B4FDE71C25458BB00070B190 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,7 @@
 				B4FDE71F25458BB00070B190 /* Walk2Draw.xcdatamodeld in Sources */,
 				B4FDE71525458BB00070B190 /* AppDelegate.swift in Sources */,
 				B4FDE71725458BB00070B190 /* SceneDelegate.swift in Sources */,
+				B4FDE7542545CB430070B190 /* LocationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +308,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B4FDE71A25458BB00070B190 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B4FDE71B25458BB00070B190 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B4FDE72225458BB10070B190 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -597,6 +597,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B4FDE74A2545C8520070B190 /* XCRemoteSwiftPackageReference "LogStore2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dasdom/LogStore2.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B4FDE74B2545C8520070B190 /* LogStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4FDE74A2545C8520070B190 /* XCRemoteSwiftPackageReference "LogStore2" */;
+			productName = LogStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B4FDE71D25458BB00070B190 /* Walk2Draw.xcdatamodeld */ = {
