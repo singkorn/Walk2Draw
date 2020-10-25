@@ -17,6 +17,7 @@
 		B4FDE73A25458BB10070B190 /* Walk2DrawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE73925458BB10070B190 /* Walk2DrawUITests.swift */; };
 		B4FDE74C2545C8520070B190 /* LogStore in Frameworks */ = {isa = PBXBuildFile; productRef = B4FDE74B2545C8520070B190 /* LogStore */; };
 		B4FDE7542545CB430070B190 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE7532545CB430070B190 /* LocationProvider.swift */; };
+		B4FDE7592545D28A0070B190 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FDE7582545D28A0070B190 /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		B4FDE73925458BB10070B190 /* Walk2DrawUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walk2DrawUITests.swift; sourceTree = "<group>"; };
 		B4FDE73B25458BB10070B190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4FDE7532545CB430070B190 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		B4FDE7582545D28A0070B190 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B4FDE71425458BB00070B190 /* AppDelegate.swift */,
+				B4FDE7582545D28A0070B190 /* DrawView.swift */,
 				B4FDE71625458BB00070B190 /* SceneDelegate.swift */,
 				B4FDE7532545CB430070B190 /* LocationProvider.swift */,
 				B4FDE71825458BB00070B190 /* ViewController.swift */,
@@ -270,6 +273,7 @@
 			files = (
 				B4FDE71925458BB00070B190 /* ViewController.swift in Sources */,
 				B4FDE71F25458BB00070B190 /* Walk2Draw.xcdatamodeld in Sources */,
+				B4FDE7592545D28A0070B190 /* DrawView.swift in Sources */,
 				B4FDE71525458BB00070B190 /* AppDelegate.swift in Sources */,
 				B4FDE71725458BB00070B190 /* SceneDelegate.swift in Sources */,
 				B4FDE7542545CB430070B190 /* LocationProvider.swift in Sources */,
