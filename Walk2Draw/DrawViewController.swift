@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LogStore
 
 class DrawViewController: UIViewController {
 
@@ -14,9 +15,12 @@ class DrawViewController: UIViewController {
 //
 //        // Do any additional setup after loading the view.
 //    }
+    private var locationProvider: LocationProvider?
     
     override func loadView() {
         let contentView = DrawView(frame: .zero)
+        
+        contentView.startStopButton.addTarget(self, action: #selector(startStop(_:)), for: .touchUpInside)
         
         view = contentView
     }
@@ -30,5 +34,27 @@ class DrawViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        locationProvider = LocationProvider(updateHandler: { location in
+            printLog("location: \(location)")
+        })
+    }
+    
+    @objc func startStop(_ sender: UIButton) {
+        guard let locationProvider = locationProvider else {
+            fatalError()
+        }
+        
+        if locationProvider.updating {
+            locationProvider.stop()
+            sender.setTitle("Start", for: .normal)
+        } else {
+            locationProvider.start()
+            sender.setTitle("Stop", for: .normal)
+        }
+    }
 
 }

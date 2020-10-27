@@ -12,9 +12,12 @@ import LogStore
 class LocationProvider: NSObject, CLLocationManagerDelegate {
     
     private let locationManager: CLLocationManager
+    private let updateHandler: (CLLocation) -> Void
+    private(set) var updating = false
     
-    override init() {
+    init(updateHandler: @escaping (CLLocation) -> Void) {
         locationManager = CLLocationManager()
+        self.updateHandler = updateHandler
         
         super.init()
         
@@ -25,6 +28,12 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
     
     func start() {
         locationManager.startUpdatingLocation()
+        updating = true
+    }
+    
+    func stop() {
+        locationManager.stopUpdatingLocation()
+        updating = false
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -39,7 +48,11 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        printLog("locations: \(locations)")
+        
+        guard let location = locations.last else {
+            return
+        }
+        updateHandler(location)
     }
 
 }
