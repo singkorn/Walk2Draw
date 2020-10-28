@@ -40,6 +40,8 @@ class DrawView: UIView {
         
         backgroundColor = .white
         
+        mapView.delegate = self
+        
         let buttonStackView = UIStackView(arrangedSubviews: [clearButton, startStopButton, shareButton])
         buttonStackView.distribution = .fillEqually
         
@@ -54,5 +56,34 @@ class DrawView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addOverlay(with locations: [CLLocation]) {
+        mapView.removeOverlays(mapView.overlays)
+        
+        let coordinates = locations.map { $0.coordinate }
+        let overlay = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        
+        mapView.addOverlay(overlay)
+        
+        guard let lastCoordinate = coordinates.last else {
+            return
+        }
+        
+        let region = MKCoordinateRegion(center: lastCoordinate, latitudinalMeters: 300, longitudinalMeters: 300)
+        mapView.setRegion(region, animated: true)
+    }
+}
+
+extension DrawView : MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = .red
+            renderer.lineWidth = 3
+            return renderer
+        } else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
     }
 }

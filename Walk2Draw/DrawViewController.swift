@@ -7,6 +7,7 @@
 
 import UIKit
 import LogStore
+import CoreLocation
 
 class DrawViewController: UIViewController {
 
@@ -16,6 +17,10 @@ class DrawViewController: UIViewController {
 //        // Do any additional setup after loading the view.
 //    }
     private var locationProvider: LocationProvider?
+    private var locations:[CLLocation] = []
+    private var contentView: DrawView {
+        view as! DrawView
+    }
     
     override func loadView() {
         let contentView = DrawView(frame: .zero)
@@ -38,8 +43,15 @@ class DrawViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationProvider = LocationProvider(updateHandler: { location in
+        locationProvider = LocationProvider(updateHandler: {[weak self] location in
+            
+            guard let self = self else {
+                return
+            }
             printLog("location: \(location)")
+            self.locations.append(location)
+            
+            self.contentView.addOverlay(with: self.locations)
         })
     }
     
