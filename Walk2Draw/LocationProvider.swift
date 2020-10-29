@@ -29,11 +29,13 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
     func start() {
         locationManager.startUpdatingLocation()
         updating = true
+        locationManager.allowsBackgroundLocationUpdates = true
     }
     
     func stop() {
         locationManager.stopUpdatingLocation()
         updating = false
+        locationManager.allowsBackgroundLocationUpdates = false
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

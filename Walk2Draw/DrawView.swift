@@ -66,11 +66,19 @@ class DrawView: UIView {
         
         mapView.addOverlay(overlay)
         
-        guard let lastCoordinate = coordinates.last else {
+        guard let lastLocation = locations.last else {
             return
         }
         
-        let region = MKCoordinateRegion(center: lastCoordinate, latitudinalMeters: 300, longitudinalMeters: 300)
+        let maxDistance = locations.reduce(100) {
+            result, next -> Double in
+            
+            let distance = next.distance(from: lastLocation)
+            return max(result, distance)
+        }
+        
+        let region = MKCoordinateRegion(center: lastLocation.coordinate, latitudinalMeters: maxDistance, longitudinalMeters: maxDistance)
+        
         mapView.setRegion(region, animated: true)
     }
 }
